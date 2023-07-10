@@ -1,0 +1,124 @@
+<div class="card mt-8 ml-4 mr-4 shadow-2 border-round mr-4 ml-4">
+    <p-card header="Register a new employee">
+        <div class="formgrid grid gap-3 mt-4">
+            <div class="field col">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                        <i class="pi pi-user"></i>
+                    </span>
+                    <input pInputText placeholder="First Name" [(ngModel)]="employee.name" [required]="true"/>
+                </div>
+                <small id="username-help" class="p-error" [hidden]="validName">This First Name is not a valid value.</small>
+            </div>
+            <div class="field col">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                        <i class="pi pi-user"></i>
+                    </span>
+                    <input type="text" pInputText placeholder="Last Name" [(ngModel)]="employee.lastName" />
+                </div>
+                <small id="username-help" class="p-error" [hidden]="validLastName">This Last Name is not a valid value.</small>
+            </div>
+        </div>
+        <div class="formgrid grid gap-3 mt-4">
+            <div class="field col">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                        @
+                    </span>
+                    <input pInputText placeholder="Email" [(ngModel)]="employee.email" />
+                </div>
+                <small id="username-help" class="p-error" [hidden]="validEmail">This email is not valid.</small>
+            </div>
+            <div class="field col">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                        <i class="pi pi-user"></i>
+                    </span>
+                    <input type="text" pInputText placeholder="ID" [(ngModel)]="employee.idPerson" />
+                </div>
+                <small id="username-help" class="p-error" [hidden]="validIdPerson">This ID is not a valid value.</small>
+            </div>
+        </div>
+        <div class="formgrid grid gap-3 mt-4">
+            <div class="field col">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                        <i class="pi pi-user"></i>
+                    </span>
+                    <input pInputText placeholder="Age" [(ngModel)]="employee.age" type="number" />
+                </div>
+                <small id="username-help" class="p-error" [hidden]="validAge">This age is not a valid value.</small>
+            </div>
+            <div class="field col">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                        <i class="pi pi-user"></i>
+                    </span>
+                    <input type="text" pInputText placeholder="Phone" [(ngModel)]="employee.phone"/>
+                </div>
+                <small id="username-help" class="p-error" [hidden]="validPhone">This phone number is not a valid value.</small>
+            </div>
+        </div>
+        <div class="formgrid grid gap-3 mt-4">
+            <div class="field col">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                        <i class="pi pi-user"></i>
+                    </span>
+                    <input pInputText placeholder="Address" [(ngModel)]="employee.address"/>
+                </div>
+                <small id="username-help" class="p-error" [hidden]="validAddress">This address is not a valid value.</small>
+            </div>
+            <div class="field col">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                        <i class="pi pi-user"></i>
+                    </span>
+                    <p-dropdown [options]="jobs" [(ngModel)]="employee.job" optionLabel="name" optionValue="value" [style]="{'width':'100%'}" placeholder="Select a Job"></p-dropdown>
+                </div>
+                <small id="username-help" class="p-error" [hidden]="validJob">Please select a job.</small>
+            </div>
+        </div>
+        <div class="formgrid grid gap-3 mt-3">
+            <div class="field col">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                        <i class="pi pi-user"></i>
+                    </span>
+                    <input type="text" pInputText placeholder="ID Employee" [(ngModel)]="employee.idEmployee"/>
+                </div>
+                <small id="username-help" class="p-error" [hidden]="validIdEmployee">This ID Employee is not a valid value.</small>
+            </div>
+            <div class="field col">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                        <i class="pi pi-user"></i>
+                    </span>
+                    <input pInputText placeholder="Salary" [(ngModel)]="employee.salary"/>
+                </div>
+                <small id="username-help" class="p-error" [hidden]="validSalary">This salary is not a valid value.</small>
+            </div>
+        </div>
+
+        <button pButton pRipple label="Save Employee" icon="pi pi-user-plus" class="w-full" (click)="save()"></button>
+    </p-card>
+</div>
+
+<p-toast position="center" [baseZIndex]="5000" [showTransformOptions]="'translateY(100%)'"
+    [showTransitionOptions]="'1000ms'" [hideTransitionOptions]="'1000ms'" [showTransformOptions]="'translateX(100%)'">
+    <ng-template let-message pTemplate="message">
+        <div class="flex flex-column" style="flex: 1">
+            <div class="text-center">
+                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                <h4>{{message.summary}}</h4>
+                <p>{{message.detail}}</p>
+            </div>
+            <div class="grid p-fluid" *ngIf="(savedEmployee)">
+                <div class="col-12">
+                    <button type="button" pButton (click)="onConfirm()" label="Ok" class="p-button-danger"></button>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>

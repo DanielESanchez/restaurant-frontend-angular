@@ -1,0 +1,19 @@
+.title {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: x-large;
+    font-weight: bold;
+    margin-top: auto;
+    margin-bottom: auto;
+}
+
+::ng-deep .p-menubar {
+
+    p-menubarsub {
+        position: absolute;
+        right: 40px;
+    }
+}
+
+.logo {
+    cursor: pointer;
+}

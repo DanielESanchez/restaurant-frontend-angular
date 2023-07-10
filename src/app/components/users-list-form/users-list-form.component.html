@@ -1,0 +1,50 @@
+<div class="card mr-5 ml-5 mt-3 surface-card p-4 shadow-2 border-round">
+    <h1 class="text-center">Users Registered</h1>
+    <p-table #dt2 [value]="users" dataKey="id" [paginator]="true" [rows]="10" [showCurrentPageReport]="true"
+        [tableStyle]="{ 'min-width': '50rem'}"
+        currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+        [rowsPerPageOptions]="[10, 25, 50]" [globalFilterFields]="['username', 'date', 'id.employee']">
+        <ng-template pTemplate="caption">
+            <div class="flex">
+                <button pButton label="Clear" class="p-button-outlined" icon="pi pi-filter-slash"
+                    (click)="clear(dt2)"></button>
+                <span class="p-input-icon-left ml-auto">
+                    <i class="pi pi-search"></i>
+                    <input #search pInputText type="text" (input)="dt2.filterGlobal(search.value, 'contains')"
+                        placeholder="Search Username" />
+                </span>
+            </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+            <tr>
+                <th style="width:25%">
+                    Name
+                    <!--p-columnFilter type="type" field="employee" display="menu" [showMatchModes]="false" [showOperator]="false" [showAddButton]="false"></p-columnFilter-->
+                </th>
+                <th style="width:25%">Username
+                    <p-columnFilter type="text" field="username" display="menu" [showMatchModes]="false"
+                        [showOperator]="false" [showAddButton]="false"></p-columnFilter>
+                </th>
+                <th style="width:25%">ID Employee
+                    <p-columnFilter type="text" field="id.employee" display="menu" [showMatchModes]="false"
+                        [showOperator]="false" [showAddButton]="false"></p-columnFilter>
+                </th>
+                <th style="width:25%">Signup Date
+                    <p-columnFilter type="text" field="date" display="menu" [showMatchModes]="false"
+                        [showOperator]="false" [showAddButton]="false"></p-columnFilter>
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-user>
+            <tr>
+                <td>{{ user.firstName }} {{ user.lastName }}</td>
+                <td>{{ user.username }}</td>
+                <td>{{ user.idEmployee }}</td>
+                <td>{{ user.createdAt }}</td>
+                <!--td>
+                    <p-button icon="pi pi-user" styleClass="p-button-rounded p-button-success" class="mr-2" (click)="getEmployee(user._id, user.username)"></p-button>
+                </td-->
+            </tr>
+        </ng-template>
+    </p-table>
+</div>

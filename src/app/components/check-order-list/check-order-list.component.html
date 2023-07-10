@@ -1,0 +1,57 @@
+<div class="card mt-4">
+    <h1 class="text-center">Your Order</h1>
+    <p-divider></p-divider>
+    <p-dataView #dv [value]="products" [layout]="'list'">
+        <ng-template let-product pTemplate="listItem">
+            <div class="col-12">
+                <div class="flex flex-column xl:flex-row xl:align-items-start p-4 gap-4">
+                    <img class="w-9 sm:w-16rem xl:w-10rem shadow-2 block xl:block mx-auto border-round"
+                        [src]="environmentData.apiUrl + 'file/download/' + product.image" [alt]="product.name" />
+                    <div
+                        class="flex flex-column sm:flex-row justify-content-between align-items-center xl:align-items-start flex-1 gap-4">
+                        <div class="flex flex-column align-items-center sm:align-items-start gap-3">
+                            <div class="text-2xl font-bold text-900">{{ product.name }}</div>
+                            <div class="flex align-items-center gap-3">
+                                <span class="flex align-items-center gap-2">
+                                    <i class="pi pi-tag"></i>
+                                    <span class="font-semibold">{{ product.categoryName }}</span>
+                                </span>
+                            </div>
+                            <div class="flex align-items-center gap-3">
+                                <span class="flex align-items-center gap-2">
+                                    <i class="pi pi-caret-right"></i>
+                                    <span class="font-medium">{{ product.description }}</span>
+                                </span>
+                            </div>
+                            <div class="flex align-items-center gap-3">
+                                <span class="flex align-items-center gap-2">
+                                    <i class="pi pi-check"></i>
+                                    <span class="font-medium">Quantity: {{ product.quantity }}</span>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="flex sm:flex-column align-items-center sm:align-items-end gap-3 sm:gap-2">
+                            <span class="text-2xl font-semibold">{{ '$' + product.total }}</span>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </ng-template>
+    </p-dataView>
+    <div class="text-center mt-4">
+        <button pButton pRipple label="Save Order" class="w-4" (click)="save(4)"></button>
+    </div>
+</div>
+
+<p-toast position="center" [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
+        <div class="flex flex-column" style="flex: 1">
+            <div class="text-center">
+                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                <h4>{{message.summary}}</h4>
+                <p>{{message.detail}}</p>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>

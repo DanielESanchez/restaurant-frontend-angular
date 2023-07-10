@@ -1,0 +1,9 @@
+<div class="card">
+    <div class="text-center">
+        <p-inputNumber [(ngModel)]="quantity" placeholder="Select a quantity" [showButtons]="true" inputId="stacked" class="mr-2"> </p-inputNumber>
+        <button type="button" pButton icon="pi pi-plus" (click)="selectProduct()" class="mr-2  p-button-rounded"></button>
+    </div>
+    <div class="text-center">
+        <small id="username-help" class="p-error" [hidden]="valid">Please add a valid number.</small>
+    </div>
+</div>

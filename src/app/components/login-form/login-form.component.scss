@@ -1,0 +1,15 @@
+:host ::ng-deep .p-password input {
+    width: 15rem;
+}
+
+:host ::ng-deep .p-password-panel .p-password-meter .p-password-strength.weak {
+  background: #D32F2F;
+}
+
+:host ::ng-deep .p-password-panel .p-password-meter .p-password-strength.medium {
+    background: #FBC02D;
+}
+
+:host ::ng-deep .p-password-panel .p-password-meter .p-password-strength.strong {
+    background: #689F38;
+}

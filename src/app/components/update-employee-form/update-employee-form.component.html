@@ -1,0 +1,188 @@
+<div class="card mt-8 ml-4 mr-4 shadow-2 border-round mr-4 ml-4">
+    <p-card header="Information Employee {{employee.idEmployee}}">
+        <div class="formgrid grid gap-3 mt-4">
+            <div class="field col">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                        <i class="pi pi-user"></i>
+                    </span>
+                    <span class="p-float-label">
+                        <input id="first-name" pInputText placeholder="First Name" [(ngModel)]="employee.name"
+                            [required]="true" />
+                        <label htmlFor="first-name">First Name</label>
+                    </span>
+                </div>
+                <small id="username-help" class="p-error" [hidden]="validName">This First Name is not a valid
+                    value.</small>
+            </div>
+            <div class="field col">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                        <i class="pi pi-user"></i>
+                    </span>
+                    <span class="p-float-label">
+                        <input id="last-name" type="text" pInputText placeholder="Last Name"
+                            [(ngModel)]="employee.lastName" [required]="true" />
+                        <label htmlFor="last-name">Last Name</label>
+                    </span>
+                </div>
+                <small id="username-help" class="p-error" [hidden]="validLastName">This Last Name is not a valid
+                    value.</small>
+            </div>
+        </div>
+        <div class="formgrid grid gap-3 mt-4">
+            <div class="field col">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                        @
+                    </span>
+                    <span class="p-float-label">
+                        <input id="email" pInputText placeholder="Email" type="email" [(ngModel)]="employee.email"
+                            [required]="true" />
+                        <label htmlFor="email">Email</label>
+                    </span>
+                </div>
+                <small id="username-help" class="p-error" [hidden]="validEmail">This email is not valid.</small>
+            </div>
+            <div class="field col">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                        <i class="pi pi-user"></i>
+                    </span>
+                    <span class="p-float-label">
+                        <input id="idPerson" pInputText placeholder="ID" [(ngModel)]="employee.idPerson"
+                            [required]="true" />
+                        <label htmlFor="idPerson">ID</label>
+                    </span>
+                </div>
+                <small id="username-help" class="p-error" [hidden]="validIdPerson">This ID is not a valid value.</small>
+            </div>
+        </div>
+        <div class="formgrid grid gap-3 mt-4">
+            <div class="field col">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                        <i class="pi pi-user"></i>
+                    </span>
+                    <span class="p-float-label">
+                        <input id="age" pInputText placeholder="Age" [(ngModel)]="employee.age" type="number"
+                            [required]="true" />
+                        <label htmlFor="age">Age</label>
+                    </span>
+                </div>
+                <small id="username-help" class="p-error" [hidden]="validAge">This age is not a valid value.</small>
+            </div>
+            <div class="field col">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                        <i class="pi pi-user"></i>
+                    </span>
+                    <span class="p-float-label">
+                        <input id="phone" type="text" pInputText placeholder="Phone" [(ngModel)]="employee.phone"
+                            [required]="true" />
+                        <label htmlFor="phone">Phone</label>
+                    </span>
+                </div>
+                <small id="username-help" class="p-error" [hidden]="validPhone">This phone number is not a valid
+                    value.</small>
+            </div>
+        </div>
+        <div class="formgrid grid gap-3 mt-4">
+            <div class="field col">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                        <i class="pi pi-user"></i>
+                    </span>
+                    <span class="p-float-label">
+                        <input id="address" pInputText placeholder="Address" [(ngModel)]="employee.address"
+                            [required]="true" />
+                        <label htmlFor="address">Address</label>
+                    </span>
+                </div>
+                <small id="username-help" class="p-error" [hidden]="validAddress">This address is not a valid
+                    value.</small>
+            </div>
+            <div class="field col">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                        <i class="pi pi-user"></i>
+                    </span>
+                    <span class="p-float-label">
+                        <p-dropdown id="job" [options]="jobs" [(ngModel)]="employee.job" optionLabel="name"
+                            optionValue="value" [style]="{'width':'100%'}" placeholder="Select a Job" [required]="true"></p-dropdown>
+                        <label htmlFor="job">Job</label>
+                    </span>
+                </div>
+                <small id="username-help" class="p-error" [hidden]="validJob">Please select a job.</small>
+            </div>
+        </div>
+        <div class="formgrid grid gap-3 mt-3">
+            <div class="field col">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                        <i class="pi pi-user"></i>
+                    </span>
+                    <span class="p-float-label">
+                        <input id="ID Employee" type="text" pInputText placeholder="ID Employee"
+                            [(ngModel)]="employee.idEmployee" [disabled]="true" />
+                        <label htmlFor="id-employee">ID Employee</label>
+                    </span>
+                </div>
+            </div>
+            <div class="field col">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                        <i class="pi pi-user"></i>
+                    </span>
+                    <span class="p-float-label">
+                        <input id="salary" pInputText placeholder="Salary" [(ngModel)]="employee.salary" [required]="true"/>
+                        <label htmlFor="salary">Salary</label>
+                    </span>
+                </div>
+                <small id="username-help" class="p-error" [hidden]="validSalary">This salary is not a valid
+                    value.</small>
+            </div>
+        </div>
+        <div class="formgrid grid gap-3 mt-3">
+            <div class="field col">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                        <i class="pi pi-user"></i>
+                    </span>
+                    <span class="p-float-label">
+                        <input id="hire-date" type="text" pInputText placeholder="ID Employee"
+                            [(ngModel)]="employee.hireDate" [disabled]="true" />
+                        <label htmlFor="hire-date">Hire Date</label>
+                    </span>
+                </div>
+            </div>
+            <div class="field col">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                        <i class="pi pi-user"></i>
+                    </span>
+                    <span class="p-float-label">
+                        <input id="ID Employee" type="text" pInputText placeholder="ID Employee"
+                            [(ngModel)]="statusEmployee" [disabled]="true" />
+                        <label htmlFor="id-employee">Status</label>
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <button pButton pRipple label="Update Employee {{employee.idEmployee}}" icon="pi pi-user-plus" class="w-full" (click)="update()"></button>
+    </p-card>
+</div>
+
+<p-toast position="center" [baseZIndex]="5000" [showTransformOptions]="'translateY(100%)'" (onClose)="onCloseToast()"
+    [showTransitionOptions]="'1000ms'" [hideTransitionOptions]="'1000ms'" [showTransformOptions]="'translateX(100%)'">
+    <ng-template let-message pTemplate="message">
+        <div class="flex flex-column" style="flex: 1">
+            <div class="text-center">
+                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                <h4>{{message.summary}}</h4>
+                <p>{{message.detail}}</p>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>

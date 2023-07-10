@@ -1,0 +1,59 @@
+<app-navbar></app-navbar>
+<div class="flex justify-content-center flex-wrap mt-8">
+    <div class="surface-card p-4 shadow-2 border-round w-full lg:w-3 xl:-3 md:w-8 sm:w-10">
+        <div class="text-center mb-5">
+            <img src="assets/logo.jpeg" alt="Image" height="50" class="mb-3">
+            <div class="text-900 text-3xl font-medium mb-3">New Account For Employee {{idEmployee}}</div>
+        </div>
+    
+        <div>
+            <div class="mb-3">
+                <label for="email" class="block text-900 font-medium mb-2">Username</label>
+                <input id="email" type="text" placeholder="Enter Username" [(ngModel)]="username" pInputText class="w-full" [required]="true">
+                <small id="username-help" class="p-error" [hidden]="validUsername">Please use a valid username.</small>
+            </div>
+            <div class="mb-3">
+                <label for="id-employee" class="block text-900 font-medium mb-2">ID Employee</label>
+                <input id="id-employee" type="text" placeholder="Enter Email" [(ngModel)]="idEmployee" pInputText class="w-full" [required]="true" [disabled]="true">
+            </div>
+    
+            <label for="password" class="block text-900 font-medium mb-2">Password</label>
+            <p-password id="password" placeholder="Enter Password" [(ngModel)]="password" [toggleMask]="true" [required]="true"
+            styleClass="p-password p-component p-inputwrapper p-input-icon-right" [style]="{'width':'100%'}"
+            [inputStyle]="{'width':'100%'}" [ngClass]="(validPass)? clean : dirt">
+                <ng-template pTemplate="header">
+                    <h6>Pick a password</h6>
+                </ng-template>
+                <ng-template pTemplate="footer">
+                    <p-divider></p-divider>
+                    <p class="mt-2">Suggestions</p>
+                    <ul class="pl-2 ml-2 mt-0" style="line-height: 1.5">
+                        <li>At least one lowercase</li>
+                        <li>At least one uppercase</li>
+                        <li>At least one numeric</li>
+                        <li>Minimum 8 characters</li>
+                    </ul>
+                </ng-template>
+            </p-password>
+            <small id="username-help" class="p-error" [hidden]="validPass">Your password is weak, please use another password.</small>
+            
+            <p-divider></p-divider>
+    
+            <button pButton pRipple label="Sign Up" icon="pi pi-user" class="w-full" (click)="saveUser()"></button>
+        </div>
+    </div>
+</div>
+
+<p-toast position="center" [baseZIndex]="5000" [showTransformOptions]="'translateY(100%)'" (onClose)="onCloseToast()"
+    [showTransitionOptions]="'1000ms'" [hideTransitionOptions]="'1000ms'" [showTransformOptions]="'translateX(100%)'">
+    <ng-template let-message pTemplate="message">
+        <div class="flex flex-column" style="flex: 1">
+            <div class="text-center">
+                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                <h4>{{message.summary}}</h4>
+                <p>{{message.detail}}</p>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>
+<app-footer></app-footer>

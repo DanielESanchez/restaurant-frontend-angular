@@ -1,1 +1,35 @@
 /* You can add global styles to this file, and also import other style files */
+@import "primeng/resources/themes/mdc-light-deeppurple/theme.css";
+@import "primeng/resources/primeng.css";
+@import "primeicons/primeicons.css";
+@import "primeflex/primeflex.css";
+
+body,
+html {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow: auto;
+}
+
+*:before,
+*:after {
+    box-sizing: inherit;
+}
+
+.card {
+    background: var(--surface-card);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    position: relative;
+}
+
+/*.footer {
+    position: fixed;
+    bottom: 0px;
+    width: 100%;
+    z-index: 0;
+    background-color: #673AB7;
+    //other codes
+}*/

@@ -1,0 +1,113 @@
+<div class="card mt-8 ml-4 mr-4 shadow-2 border-round mr-4 ml-4">
+    <p-card header="Add item to Menu">
+        <div class="formgrid grid gap-3 mt-4">
+            <div class="field col">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                    </span>
+                    <span class="p-float-label">
+                        <input pInputText placeholder="ID" [(ngModel)]="menu.productId" [required]="true" />
+                        <label>Product ID</label>
+                    </span>
+                </div>
+            </div>
+            <div class="field col">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                    </span>
+                    <span class="p-float-label">
+                        <input type="text" pInputText placeholder="Name" [(ngModel)]="menu.name" />
+                        <label>Name</label>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="formgrid grid gap-3 mt-4">
+            <div class="field col">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                    </span>
+                    <span class="p-float-label">
+                        <input pInputText placeholder="Consumable (1:1)" [(ngModel)]="menu.consumable"
+                            [required]="true" />
+                        <label>Consumable Proportion</label>
+                    </span>
+                </div>
+            </div>
+            <div class="field col">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                    </span>
+                    <span class="p-float-label">
+                        <input type="text" pInputText placeholder="Price" [(ngModel)]="menu.price" />
+                        <label>Price</label>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="formgrid grid gap-3 mt-4">
+            <div class="field col">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                    </span>
+                    <span class="p-float-label">
+                        <input type="text" pInputText placeholder="Cuisine Name" [(ngModel)]="menu.cuisineName" />
+                        <label>Cuisine Name</label>
+                    </span>
+                </div>
+            </div>
+            <div class="field col">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                    </span>
+                    <span class="p-float-label">
+                        <input type="text" pInputText placeholder="Category" [(ngModel)]="menu.categoryName" />
+                        <label>Category</label>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="formgrid grid gap-3 mt-4">
+            <div class="field col">
+                <div class="p-inputgroup">
+                    <span class="p-inputgroup-addon">
+                    </span>
+                    <span class="p-float-label">
+                        <textarea rows="5" cols="30" placeholder="Description" pInputTextarea [(ngModel)]="menu.description"></textarea>
+                        <label>Description</label>
+                    </span>
+                </div>
+            </div>
+            <div class="field col">
+                <div class="p-inputgroup">
+                    <p-fileUpload mode="advanced" chooseLabel="Choose Image" [showUploadButton]="false" accept="image/*"
+                        [maxFileSize]="1000000" (onSelect)="onSelect($event)" (onRemove)="onRemove()"
+                        [ngStyle]="{ 'width': '100%'}"></p-fileUpload>
+                </div>
+            </div>
+        </div>
+
+        <button pButton pRipple label="Save New Item" icon="pi pi-user-plus" class="w-full"
+            (click)="saveMenu()"></button>
+    </p-card>
+</div>
+
+<p-toast position="center" [baseZIndex]="5000">
+    <ng-template let-message pTemplate="message">
+        <div class="flex flex-column" style="flex: 1">
+            <div class="text-center">
+                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                <h4>{{message.summary}}</h4>
+                <p>{{message.detail}}</p>
+            </div>
+            <div class="grid p-fluid"  *ngIf="(!isErrorForm)">
+                <div class="col-6">
+                    <button type="button" pButton (click)="onConfirm()" label="Ok" class="p-button-danger"></button>
+                </div>
+                <div class="col-6">
+                    <button type="button" pButton label="Close" (click)="onReject()" class="p-button-success"></button>
+                </div>
+            </div>
+        </div>
+    </ng-template>
+</p-toast>
